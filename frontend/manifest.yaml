@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    project: roboshop
+    tier: backend
+    component: catalogue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: roboshop
+      tier: backend
+      component: catalogue
+  template:
+    metadata:
+        labels:
+          project: roboshop
+          tier: backend
+          component: catalogue
+    spec:
+      containers:
+        - name: frontend
+          image: 
+---
+apiVersion: v1
+kind: service
+metadata:
+  labels:
+    project: roboshop
+    tier: backend
+    component: catalogue
+spec:
+  type: NodePort
+  selector:
+    project: roboshop
+    tier: backend
+    component: catalogue
+  ports:
+    - protocol: TCP
+      targetPort: 80
+      port: 8080
+      nodePort: 30007
+      
+
