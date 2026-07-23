@@ -99,13 +99,13 @@ spec:
             subPath: nginx.conf
             readOnly: true
     
-    volumes:
-      - name: nginx.conf
-        configMap:
-          name: nginx
-          items:
-            - key: nginx.conf
-              path: nginx.conf
+      volumes:
+       - name: nginx.conf
+         configMap:
+           name: nginx
+           items:
+             - key: nginx.conf
+               path: nginx.conf
     
 ---
 apiVersion: v1
