@@ -40,6 +40,7 @@ metadata:
     tier: backend
     component: catalogue
 spec:
+  type: NodePort
   selector:
     project: roboshop
     tier: backend
@@ -48,5 +49,6 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
+      nodePort: 30008
  
   
