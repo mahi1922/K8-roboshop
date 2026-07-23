@@ -23,6 +23,11 @@ spec:
       component: catalogue
   template:
     metadata:
+      labels:
+        project: roboshop
+        tier: backend
+        component: catalogue
+    spec:  
       containers:
         - name: catalogue
           image: joindevops/catalogue:4.0.0
