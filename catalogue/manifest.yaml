@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: ConfigMap
+matadata:
+  name: catalogue-config
+data:
+  MONGO: "true"
+  MONGO_URL: "mongodb://mongodb:27017/catalogue"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalogue
+  labels:
+    project: roboshop
+    tier: backend
+    component: catalogue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: roboshop
+      tier: backend
+      component: catalogue
+  template:
+    metadata:
+      containers:
+        - name: catalogue
+          image: joindevops/catalogue:4.0.0
+          envFrom:
+            - configMapRef:
+                name: catalogue-config
+                
+---
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: catalogue-Service
+  labels:
+    project: roboshop
+    tier: backend
+    component: catalogue
+spec:
+  selector:
+    project: roboshop
+    tier: backend
+    component: catalogue
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+ 
+  
