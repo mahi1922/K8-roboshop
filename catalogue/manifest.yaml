@@ -34,7 +34,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: catalogue-Service
+  name: catalogue-service
   labels:
     project: roboshop
     tier: backend
