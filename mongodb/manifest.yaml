@@ -24,10 +24,10 @@ spec:
               image: joindevops/mongodb:4.0.0
 ---
 
-apiVersion: apps/v1
+apiVersion: v1
 kind: Service
 metadata:
-  name: mongodb-Svc
+  name: mongodb-svc
   labels:
     project: roboshop
     tier: db
