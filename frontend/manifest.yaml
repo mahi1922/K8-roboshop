@@ -100,7 +100,7 @@ spec:
             readOnly: true
     
       volumes:
-       - name: nginx.conf
+       - name: nginx-conf
          configMap:
            name: nginx
            items:
