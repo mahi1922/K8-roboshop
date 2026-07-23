@@ -93,9 +93,20 @@ spec:
       containers:
         - name: frontend
           image: joindevops/frontend:4.0.0
-          envFrom:
-             configMapRef:
-               - name: frontend
+          volumeMounts:
+          - name: nginx-config
+            mountPath: /etc/nginx/nginx.conf
+            subPath: nginx.conf
+            readOnly: true
+    
+    volumes:
+      - name: nginx.conf
+        configMap:
+          name: nginx
+          items:
+            - key: nginx.conf
+              path: nginx.conf
+    
 ---
 apiVersion: v1
 kind: Service
