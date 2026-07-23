@@ -102,7 +102,7 @@ spec:
       volumes:
        - name: nginx-config
          configMap:
-           name: nginx
+           name: frontend
            items:
              - key: nginx.conf
                path: nginx.conf
