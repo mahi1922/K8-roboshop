@@ -27,7 +27,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongodb-svc
+  name: mongodb
   labels:
     project: roboshop
     tier: db
