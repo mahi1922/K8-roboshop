@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: shipping
 data:
-  CART_ENDPOINT: cart:8080
+  CART_ENDPOINT: "cart:8080"
   DB_HOST: mysql
 ---
 apiVersion: apps/v1
