@@ -4,9 +4,8 @@ metadata:
   name: redis
   labels: 
     project: roboshop
-    tier: db
     component: redis
-  spec:
+spec:
     replicas: 1
     selector:
       matchLabels:
